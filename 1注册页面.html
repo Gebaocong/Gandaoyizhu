@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册页面</title>
+	</head>
+	<body>
+		
+		<form>
+			<div>
+				<label for="username">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+				<input type="text" id="t1" onfocus="hqjd1()" onblur="sqjd1()"/><samp id="yhm1"></samp>
+			</div><div id="msg1" style="color:#FF0000"></div>
+			
+			<div>
+				<label for="username">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+				<input type="password" id="t2" onfocus="hqjd2()" onblur="sqjd2()"/><samp id="yhm2"></samp>
+			</div><div id="msg2" style="color:#FF0000"></div>
+			
+			<div>
+				<label for="username">确认密码：</label>
+				<input type="password" id="t3" onfocus="hqjd3()" onblur="sqjd3()"/><samp id="yhm3"></samp>
+			</div><div id="msg3" style="color:#FF0000"></div>
+			
+			
+			<br>
+			<input type="button" value="提交" onclick="submitForm()">
+			<input type="reset" value="重置">
+			<button>刷新</button>
+			
+		</form>
+		
+		
+		<script>
+			
+			//用户名输入框，获取焦点 的方法
+			function hqjd1() {
+				var e=window.event;
+				var obj=e.srcElement;
+				obj.style.background="#ffff7f";
+				document.getElementById("yhm1").innerHTML="用户名只能是字母和数字组成";
+			}
+			//用户名输入框，失去焦点 的方法
+			function sqjd1() {
+				var e=window.event;
+				var obj=e.srcElement;
+				obj.style.background="#FFFFFF";
+				document.getElementById("yhm1").innerHTML="";
+			}
+			//用户名的方法
+		   function verifyTel1(){
+		       var regexp1=/^[a-z0-9]{3,9}$/;        
+		       var t1 = document.getElementById("t1").value;
+		       if(!regexp1.test(t1)){
+		           document.getElementById("msg1").style.display="inline-block";
+		           document.getElementById("msg1").innerHTML="用户名只能是字母和数字组成！";    
+		           return false;
+		       }else{
+		           document.getElementById("msg1").style.display="none";
+		           return true;
+		       }
+		   }
+		   
+		   //密码输入框，获取焦点 的方法
+		   function hqjd2() {
+		   	var e=window.event;
+		   	var obj=e.srcElement;
+		   	obj.style.background="#ffff7f";
+		   	document.getElementById("yhm2").innerHTML="密码只能是字母和数字组成";
+		   }
+		   //用户名输入框，失去焦点 的方法
+		   function sqjd2() {
+		   	var e=window.event;
+		   	var obj=e.srcElement;
+		   	obj.style.background="#FFFFFF";
+		   	document.getElementById("yhm2").innerHTML="";
+		   }
+		   //密码的方法
+		   function verifyTel2(){
+		       var regexp2=/^[a-z0-9]{3,9}$/;        
+		       var t2 = document.getElementById("t2").value;
+		       if(!regexp2.test(t2)){
+		           document.getElementById("msg2").style.display="inline-block";
+		           document.getElementById("msg2").innerHTML="密码只能是字母和数字组成！";    
+		           return false;
+		       }else{
+		           document.getElementById("msg2").style.display="none";
+		           return true;
+		       }
+		   }
+		   
+		   //确认密码输入框，获取焦点 的方法
+		   function hqjd3() {
+		   	var e=window.event;
+		   	var obj=e.srcElement;
+		   	obj.style.background="#ffff7f";
+		   	document.getElementById("yhm3").innerHTML="两次密码需一致！";
+			}
+		   //确认密码输入框，失去焦点 的方法
+		   function sqjd3() {
+		   	var e=window.event;
+		   	var obj=e.srcElement;
+		   	obj.style.background="#FFFFFF";
+		   	document.getElementById("yhm3").innerHTML="";
+			
+			
+		   }
+		  //确认密码的方法
+		  function verifyTel3(){
+			  var regexp3=document.getElementById("t2").value;
+			  var t3 = document.getElementById("t3").value;
+			  if(regexp3==t3){
+			      document.getElementById("msg3").style.display="none";
+			      return true;
+			  }else{
+			  	  document.getElementById("msg3").style.display="inline-block";
+			  	  document.getElementById("msg3").innerHTML="两次输入的密码必须一致！";    
+			  	  return false;
+			  	}
+		  }
+		   
+		   
+		   //提交表单
+		   function submitForm(){
+		       if(verifyTel1() && verifyTel2() && verifyTel3()){
+		           // window.location.href="https://www.baidu.com/";
+				  alert("成功了");
+		       }
+		   }
+		
+		</script>
+		
+		
+	</body>
+</html>
